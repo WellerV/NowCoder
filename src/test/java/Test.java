@@ -1,4 +1,6 @@
 import com.huwei.leetcode.Leetcode29050;
+import com.huwei.leetcode.Leetcode29051;
+import com.huwei.leetcode.TreeNode;
 
 /**
  * Created by huwei on 17-8-23.
@@ -22,5 +24,13 @@ public class Test {
         /**
          * [XOXOXO,OXXXXX,XXXXXO,OXOXOX]
          */
+    }
+
+    @org.junit.Test
+    public void test29051() throws Exception {
+        int[] array = new int[]{0, 1, 2};
+//        int[] array = new int[]{1, 2, 3, 4, 5};
+        TreeNode root = TreeNode.create(array);
+        System.out.print(new Leetcode29051().sumNumbers(root));
     }
 }
