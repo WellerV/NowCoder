@@ -14,13 +14,9 @@ public class Leetcode29061 {
     public ArrayList<Integer> getRow(int rowIndex) {
         ArrayList<Integer> list = new ArrayList<>(rowIndex + 1);
         init(list, rowIndex + 1);
-        for (int i = 0; i < rowIndex + 1; i++) {
-            for (int j = 0; j < rowIndex + 1; j++) {
-                if (j == 0 || j == rowIndex) {
-                    list.set(j, 1);
-                } else {
-                    list.set(j, get(list, j - 1) + get(list, j));
-                }
+        for (int i = 2; i < rowIndex + 1; i++) {
+            for (int j = i-1; j > 0; j--) {
+                list.set(j, list.get(j) + list.get(j-1));
             }
         }
         return list;
@@ -28,7 +24,7 @@ public class Leetcode29061 {
 
     private void init(ArrayList<Integer> list, int n) {
         for (int i = 0; i < n; i++)
-            list.add(0);
+            list.add(1);
     }
 
     private int get(ArrayList<Integer> list, int index) {
