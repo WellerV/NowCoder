@@ -22,26 +22,35 @@ package com.huwei.leetcode;
  * }
  */
 public class Leetcode29056 {
-    int sum;
+    int max = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
-        sum = 0;
-        travel(root, -Integer.MAX_VALUE);
-        return sum;
+        if (root == null) return 0;
+        maxSum(root);
+        return max;
     }
 
-    private void travel(TreeNode node, int m) {
-        if (node != null) {
-            m = Math.max(m, node.val);
+    /**
+     * 以node为start的最大和
+     * @param node
+     * @return
+     */
+    private int maxSum(TreeNode node) {
+        if (node == null) return 0;
+        int leftSum = maxSum(node.left);  //求左支路
+        int rightSum = maxSum(node.right);  //求右支路
 
-            if (isLeaf(node)) sum += m;
-
-            travel(node.left, m);
-            travel(node.right, m);
+        //经过node的最大和  为root,root + left,root+right,root+left+right中的一种情况
+        int current = node.val;
+        if (leftSum > 0) {
+            current += leftSum;
         }
-    }
 
-    private boolean isLeaf(TreeNode node) {
-        return node != null && node.left == null && node.right == null;
+        if (rightSum > 0) {
+            current += rightSum;
+        }
+
+        max = Math.min(max, current);
+        return Math.max(node.val, Math.max(node.val + leftSum, node.val + rightSum));
     }
 }
