@@ -78,4 +78,9 @@ public class Test {
     public void test29061() throws Exception {
         System.out.print(new Leetcode29061().getRow(3));
     }
+
+    @org.junit.Test
+    public void test29088() throws Exception {
+        System.out.print(new Leetcode29088().numDecodings("11"));
+    }
 }
