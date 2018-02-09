@@ -88,4 +88,18 @@ public class Test {
     public void test29089() throws Exception {
         System.out.print(new Leetcode29089().grayCode(3));
     }
+
+    /**
+     * 1,4,3,2,5,2and x = 3,
+     * @throws Exception
+     */
+    @org.junit.Test
+    public void test29092() throws Exception {
+        System.out.print(new Leetcode29092().partition(Utils.createFromArray(new int[]{3,1,2}), 3));
+    }
+
+    @org.junit.Test
+    public void test29132() throws Exception {
+        System.out.print(new Leetcode29132().permuteUnique(new int[]{1,1,2}));
+    }
 }
